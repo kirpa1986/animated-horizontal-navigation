@@ -40,6 +40,7 @@ body::after {
     justify-content: flex-end;
     align-items: center;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 #nav {
@@ -56,6 +57,7 @@ body::after {
 
 #nav.active {
     width: 100%;
+    padding: 0 1rem;
 }
 
 #nav ul {
@@ -72,18 +74,39 @@ body::after {
 }
 
 #nav ul li {
+
     transform: rotateY(0deg);
     transition: transform 0.5s ease-out;
+
 }
 #nav.active ul li {
     transform: rotateY(360deg);
+    padding: 1rem;
 }
 
-#nav.active ul a {
+
+#nav.active ul li a {
     text-decoration: none;
     color: #333;
+    transition: transform 0.3s ease;
 }
 
+#nav.active ul li div {
+    transition: transform 0.5s ease;
+}
+
+#nav.active ul li:hover {
+    background-image: linear-gradient(to bottom, rgba(27, 156, 241, 1) 0%, rgba(27, 156, 241, 0.5) 50%, rgba(148, 205, 243, 1) 50%, rgba(148, 205, 243, 0.5) 100%);
+}
+
+#nav.active ul li:hover a {
+    color: #fff;
+}
+
+#nav.active ul li:hover div {
+    color: #fff;
+    transform: rotateY(360deg);
+}
 
 #nav #toggle {
     width: 1rem;
@@ -93,10 +116,8 @@ body::after {
     border: 0;
     background-color: transparent;
     position: absolute;
-    margin-left: auto;
     cursor: pointer;
 }
-
 
 #nav #toggle div {
     position: relative;
